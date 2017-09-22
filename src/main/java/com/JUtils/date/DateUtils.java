@@ -685,7 +685,7 @@ public class DateUtils {
      * @author : chenssy
      * @date : 2016年5月31日 下午5:32:09
      *
-     * @param strdate
+     * @param date
      * @return
      */
 	public static String getMonthLastDate(String date) {
@@ -735,4 +735,29 @@ public class DateUtils {
 		now.set(now.DATE, last_day_of_week);
 		return now.getTime();
 	}
+
+	/**
+	 * Get the days between two date
+	 * @param sdate
+	 * @param edate
+	 * @author : dave
+	 * @return
+	 * @throws ParseException
+	 */
+	@SuppressWarnings("static-access")
+	public static int daysBetween(Date sdate,Date edate) throws ParseException {
+		SimpleDateFormat sf = new SimpleDateFormat(DateFormatUtils.DATE_FORMAT1);
+		sdate = sf.parse(sf.format(sdate));
+		edate = sf.parse(sf.format(edate));
+
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(sdate);
+		long timeBegin = cal.getTimeInMillis();
+
+		cal.setTime(edate);
+		long timeEnd = cal.getTimeInMillis();
+
+		return Integer.parseInt(String.valueOf((timeEnd - timeBegin) / (1000 * 24 * 3600)));
+	}
+
 }

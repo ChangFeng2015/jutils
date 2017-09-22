@@ -17,7 +17,6 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.util.NumberToTextConverter;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.JUtils.date.DateUtils;
 import com.JUtils.date.DateFormatUtils;
@@ -56,7 +55,7 @@ public class ExcelReadHelper {
 	public static List<Object> excelRead(File file,String[] properties,Class obj) throws Exception{
 		Workbook book = null;
 		try {
-			book = new XSSFWorkbook(new FileInputStream(file));     //解析2003
+//			book = new XSSFWorkbook(new FileInputStream(file));     //解析2003
 		} catch (Exception e) { 
 			book = new HSSFWorkbook(new FileInputStream(file));      //解析2007
 		}
