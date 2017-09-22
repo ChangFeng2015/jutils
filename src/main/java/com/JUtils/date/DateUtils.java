@@ -757,7 +757,8 @@ public class DateUtils {
 		cal.setTime(edate);
 		long timeEnd = cal.getTimeInMillis();
 
-		return Integer.parseInt(String.valueOf((timeEnd - timeBegin) / (1000 * 24 * 3600)));
+		long beetween_days = (timeEnd - timeBegin) / (1000 * 24 * 3600);
+		return Integer.parseInt(String.valueOf(beetween_days));
 	}
 
 }
